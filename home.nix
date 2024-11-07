@@ -14,6 +14,8 @@
 
     home.packages = with pkgs; [
         fastfetch
+        qutebrowser
+        proton-pass
     ];
 
     programs.home-manager.enable = true;
