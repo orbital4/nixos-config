@@ -6,6 +6,7 @@
         ./modules/i3
         ./modules/kitty
         ./modules/bash
+        ./modules/lf
     ];
 
     home.username = "al";
@@ -16,6 +17,8 @@
         fastfetch
         qutebrowser
         proton-pass
+        zathura
+        obsidian
     ];
 
     programs.home-manager.enable = true;

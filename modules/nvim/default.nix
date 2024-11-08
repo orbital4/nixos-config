@@ -2,6 +2,10 @@
     imports = [
         nixvim.homeManagerModules.nixvim
     ];
+    
+    home.packages = with pkgs; [
+        nodejs
+    ];
 
     programs.nixvim = {
         enable = true;

@@ -41,7 +41,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec --no-startup-id bash ~/.config/i3/scripts/open_kitty_in_current_dir.sh
 
 # start browser
-bindsym $mod+Shift+Return exec --no-startup-id firefox
+bindsym $mod+Shift+Return exec --no-startup-id qutebrowser 
 
 # kill focused window
 bindsym $mod+q kill
