@@ -4,9 +4,11 @@
     imports = [
         ./modules/nvim
         ./modules/i3
+        ./modules/polybar
         ./modules/kitty
         ./modules/bash
         ./modules/lf
+        ./modules/qutebrowser
     ];
 
     home.username = "al";
@@ -15,7 +17,6 @@
 
     home.packages = with pkgs; [
         fastfetch
-        qutebrowser
         proton-pass
         zathura
         obsidian

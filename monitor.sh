@@ -1,26 +1,13 @@
 #!/bin/bash
 
-# Function to get connected displays
-get_displays() {
-    xrandr | grep " connected" | cut -d" " -f1
+get_laptop() {
+    xrandr | grep "eDP" | grep " connected" | cut -d" " -f1
 }
 
-# Function to get the primary display (usually laptop)
-get_primary() {
-    xrandr | grep "primary" | cut -d" " -f1
-}
-
-# Function to check if HDMI is connected
-is_hdmi_connected() {
-    xrandr | grep "HDMI" | grep " connected" > /dev/null
-}
-
-# Get the HDMI output name (HDMI-1, HDMI-1-0, etc.)
-get_hdmi_output() {
+get_hdmi() {
     xrandr | grep "HDMI" | grep " connected" | cut -d" " -f1
 }
 
-# Function to show menu and get user choice
 show_menu() {
     echo "Display Configuration Options:"
     echo "1) Internal Only (Laptop)"
@@ -33,33 +20,27 @@ show_menu() {
     return 0
 }
 
-# Main script
 main() {
-    if ! is_hdmi_connected; then
-        echo "No HDMI display detected"
-        exit 1
-    fi
-
-    PRIMARY=$(get_primary)
-    HDMI=$(get_hdmi_output)
+    LAPTOP=$(get_laptop)
+    HDMI=$(get_hdmi)
 
     show_menu
 
     case $choice in
         1)
             echo "Switching to laptop display only..."
-            xrandr --output "$PRIMARY" --auto --primary \
+            xrandr --output "$LAPTOP" --auto --primary \
                    --output "$HDMI" --off
             ;;
         2)
             echo "Switching to HDMI display only..."
             xrandr --output "$HDMI" --auto --primary \
-                   --output "$PRIMARY" --off
+                   --output "$LAPTOP" --off
             ;;
         3)
             echo "Extending display with HDMI on the left..."
-            xrandr --output "$PRIMARY" --auto --primary \
-                   --output "$HDMI" --auto --left-of "$PRIMARY"
+            xrandr --output "$LAPTOP" --auto --primary \
+                   --output "$HDMI" --auto --left-of "$LAPTOP"
             ;;
         q|Q)
             echo "Exiting..."
@@ -73,7 +54,7 @@ main() {
 
     if [ $? -eq 0 ]; then
         echo "Display configuration changed successfully"
-        echo "Primary display: $PRIMARY"
+        echo "Primary display: $LAPTOP"
         echo "HDMI display: $HDMI"
     else
         echo "Failed to change display configuration"
@@ -81,5 +62,4 @@ main() {
     fi
 }
 
-# Run main function
 main

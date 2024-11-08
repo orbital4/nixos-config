@@ -3,11 +3,14 @@
 {
     home.packages = with pkgs; [
         i3
+
+        # Dependencies
         i3status
         i3lock
         dmenu
         kitty
         dunst
+        polybar
     ];
 
     xsession = {

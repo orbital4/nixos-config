@@ -70,7 +70,7 @@
             conceallevel = 2;
 
             # Decrease update time
-            updatetime = 50;
+            updatetime = 10;
 
             # Decrease mapped sequence wait time
             # Displays which-key popup sooner
@@ -121,9 +121,9 @@
             { mode = "i"; key = "<C-z>"; action = "<C-o>u"; }
             { mode = "i"; key = "<C-y>"; action = "<C-o><C-r>"; }
 
-            # Navigate between files with Shift+Alt+H (previous file) and Shift+Alt+L (next file)
-            { mode = "n"; key = "<S-A-h>"; action = ":bp<CR>"; }
-            { mode = "n"; key = "<S-A-l>"; action = ":bn<CR>"; }
+            # Navigate between files with Shift+H (previous file) and Shift+L (next file)
+            { mode = "n"; key = "H"; action = ":bp<CR>"; }
+            { mode = "n"; key = "L"; action = ":bn<CR>"; }
         ];
 
         ############################################################
@@ -271,6 +271,58 @@
                     "gd" = "definition";
                     "gi" = "implementation";
                     "gt" = "type_definition";
+                };
+            };
+        };
+
+        ############################################################
+        # File browsing (harpoon, telescope)
+        ############################################################
+        plugins.web-devicons.enable = true;
+
+        plugins.telescope = {
+            enable = true;
+
+            keymaps = {
+                "<leader>ff" = "find_files";
+                "<leader>fg" = "live_grep";
+                "<leader>b" = "buffers";
+                "<leader>fh" = "help_tags";
+                "<leader>fd" = "diagnostics";
+
+                "<C-p>" = "git_files";
+                "<leader>p" = "oldfiles";
+                "<C-f>" = "live_grep";
+            };
+
+            settings.defaults = {
+                file_ignore_patterns = [
+                    "^.git/"
+                    "^.mypy_cache/"
+                    "^__pycache__/"
+                    "^output/"
+                    "^data/"
+                    "%.ipynb"
+                ];
+
+                set_env.COLORTERM = "truecolor";
+            };
+        };
+
+        plugins.harpoon = {
+            enable = true;
+            enableTelescope = true;
+            keymapsSilent = true;
+
+            keymaps = {
+                addFile = "<leader>a";
+                toggleQuickMenu = "<leader>h";
+                navFile = {
+                    "1" = "<A-1>";
+                    "2" = "<A-2>";
+                    "3" = "<A-3>";
+                    "4" = "<A-4>";
+                    "5" = "<A-5>";
                 };
             };
         };
