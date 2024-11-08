@@ -67,6 +67,7 @@
         busybox # UNIX utilities
         bat # better cat
         brightnessctl # change brightness
+        xdotool
     ];
 
     services.xserver = {

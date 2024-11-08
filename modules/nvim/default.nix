@@ -95,13 +95,15 @@
         keymaps = [
             { mode = "n"; key = "q"; action = "<cmd>quit<CR>"; }
 
-            # Keep cursor centered
-            { mode = "n"; key = "j"; action = "jzz"; }
-            { mode = "n"; key = "k"; action = "kzz"; }
-
             # Move selected lines up and down
             { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
             { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
+
+            # Keep cursor centered
+            { mode = "n"; key = "j"; action = "jzz"; }
+            { mode = "n"; key = "k"; action = "kzz"; }
+            { mode = "n"; key = "G"; action = "Gzz"; }
+            { mode = "n"; key = "gg"; action = "ggzz"; }
             
             # Keep centered when using J
             { mode = "n"; key = "J"; action = "mzJ`z"; }

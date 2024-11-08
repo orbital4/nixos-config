@@ -7,6 +7,7 @@
         i3lock
         dmenu
         kitty
+        dunst
     ];
 
     xsession = {
