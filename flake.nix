@@ -24,11 +24,11 @@
         config.allowUnfree = true;
     };
   in {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.acer = nixpkgs.lib.nixosSystem {
       inherit system;
 
       modules = [
-        ./configuration.nix
+        ./hosts/acer/configuration.nix
 
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
@@ -36,7 +36,7 @@
           home-manager.extraSpecialArgs = {
             inherit pkgs nixvim;
           };
-          home-manager.users.al = import ./home.nix;
+          home-manager.users.al = import ./hosts/acer/home.nix;
         }
       ];
     };

@@ -2,13 +2,13 @@
 
 {
     imports = [
-        ./modules/nvim
-        ./modules/i3
-        ./modules/polybar
-        ./modules/kitty
-        ./modules/bash
-        ./modules/lf
-        ./modules/qutebrowser
+        ../../modules/nvim
+        ../../modules/i3
+        ../../modules/polybar
+        ../../modules/kitty
+        ../../modules/bash
+        ../../modules/lf
+        ../../modules/qutebrowser
     ];
 
     home.username = "al";

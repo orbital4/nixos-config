@@ -2,7 +2,7 @@
 
 echo "💫 Starting NixOS rebuild..."
 
-if sudo nixos-rebuild switch --flake .#nixos; then
+if sudo nixos-rebuild switch --flake .#acer; then
     echo "✨ NixOS rebuild completed successfully!"
 else
     echo "❌ Oops! Something went wrong during the rebuild."
