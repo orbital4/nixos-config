@@ -172,3 +172,23 @@ bindsym $mod+r mode "resize"
 #}
 
 exec_always --no-startup-id bash -c "pkill polybar; while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done; polybar example"
+
+# Set background
+exec_always --no-startup-id hsetroot -solid "#111111"
+
+# Gaps
+gaps inner      4
+gaps outer      4
+gaps horizontal 4
+gaps vertical   4
+gaps top        0
+gaps left       0
+gaps right      0
+gaps bottom     0
+gaps left       0
+# smart_gaps on
+
+# Borders
+default_border pixel 0
+default_floating_border pixel 0
+smart_borders on

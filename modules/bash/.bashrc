@@ -1,3 +1,15 @@
+################################################################################
+# lf
+################################################################################
+# Change working dir in shell to last dir in lf on exit (adapted from ranger).
+lf () {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")"
+}
+
+################################################################################
+# PS1
+################################################################################
 get_os() {
     if [[ -f /etc/os-release ]]; then
         source /etc/os-release
@@ -27,9 +39,12 @@ parse_git_info() {
 
 # The PS1 configuration - note that we removed the color code for OS since it's now in the get_os function
 PS1='$(get_os)  \
-\[$(tput setaf 2)\]$(whoami)\[$(tput sgr0)\]  \
-\[$(tput setaf 5)\]\w\[$(tput sgr0)\]  \
-\[$(tput setaf 4)\]$(parse_git_info)\[$(tput sgr0)\]\n\
+\[$(tput bold)$(tput setaf 2)\]$(whoami)\[$(tput sgr0)\] \
+\[$(tput bold)$(tput setaf 5)\]\w\[$(tput sgr0)\] \
+\[$(tput bold)$(tput setaf 4)\]$(parse_git_info)\[$(tput sgr0)\]\n\
 > '
 
+################################################################################
+# Zoxide
+################################################################################
 eval "$(zoxide init bash)"

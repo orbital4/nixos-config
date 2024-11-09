@@ -1,11 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    polybar
-  ];
+    home.packages = with pkgs; [
+        polybar
 
-  home.file.".config/polybar" = {
-    source = config.lib.file.mkOutOfStoreSymlink ./config;
-  };
+        # Dependencies
+        (nerdfonts.override { fonts = [ "IBMPlexMono" ]; })
+    ];
+
+    home.file.".config/polybar" = {
+        source = config.lib.file.mkOutOfStoreSymlink ./config;
+    };
 }

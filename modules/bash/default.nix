@@ -6,6 +6,7 @@
 
         # Dependencies
         zoxide
+        lf
     ];
 
     home.file.".bashrc" = {
