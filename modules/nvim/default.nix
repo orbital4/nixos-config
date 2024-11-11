@@ -46,6 +46,7 @@
         ############################################################
         opts = {
             number = true;
+            relativenumber = true;
             showmode = false;
             clipboard = "unnamedplus";
             breakindent = true;
@@ -70,7 +71,7 @@
             conceallevel = 2;
 
             # Decrease update time
-            updatetime = 10;
+            # updatetime = 10;
 
             # Decrease mapped sequence wait time
             # Displays which-key popup sooner
@@ -167,6 +168,8 @@
                 })
             ";
         };
+        
+        plugins.web-devicons.enable = true;
 
         plugins.nvim-autopairs = {
             enable = true;
@@ -276,10 +279,23 @@
         };
 
         ############################################################
+        # Obsidian
+        ############################################################
+        plugins.obsidian = {
+            enable = true;
+            settings = {
+                workspaces = [
+                    {
+                        name = "vault";
+                        path = "~/vault";
+                    }
+                ];
+            };
+        };
+
+        ############################################################
         # File browsing (harpoon, telescope)
         ############################################################
-        plugins.web-devicons.enable = true;
-
         plugins.telescope = {
             enable = true;
 
@@ -325,6 +341,70 @@
                     "5" = "<A-5>";
                 };
             };
+        };
+
+        ############################################################
+        # Lualine
+        ############################################################
+        plugins.lualine = {
+            enable = true;
+            luaConfig.post = ''
+                -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/themes/gruvbox_dark.lua
+                local custom_gruvbox = require'lualine.themes.gruvbox'
+
+                local colors = {
+                    bg           = "#000000",
+                    bg_light     = "#111111",
+                    bg_lightest  = "#222222",
+                    fg           = "#ebdbb2",
+                    fg_light     = "#a89984",
+
+                    red          = "#fb4934",
+                    green        = "#b8bb26",
+                    blue         = "#83a598",
+                    yellow       = "#fe8019",
+                }
+
+                custom_gruvbox.normal = {
+                    a = { bg = colors.bg_lightest, fg = colors.fg, gui = "bold" },
+                    b = { bg = colors.bg_light, fg = colors.fg },
+                    c = { bg = colors.bg, fg = colors.fg_light },
+                }
+
+                custom_gruvbox.insert = {
+                    a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+                    b = { bg = colors.bg_light, fg = colors.fg },
+                    c = { bg = colors.bg, fg = colors.fg_light },
+                }
+
+                custom_gruvbox.visual = {
+                    a = { bg = colors.yellow , fg = colors.bg, gui = "bold" },
+                    b = { bg = colors.bg_light, fg = colors.fg },
+                    c = { bg = colors.bg, fg = colors.fg_light },
+                }
+
+                custom_gruvbox.replace = {
+                    a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+                    b = { bg = colors.bg_light, fg = colors.fg },
+                    c = { bg = colors.bg, fg = colors.fg_light },
+                }
+
+                custom_gruvbox.command = {
+                    a = { bg = colors.green, fg = colors.bg, gui = "bold" },
+                    b = { bg = colors.bg_light, fg = colors.fg },
+                    c = { bg = colors.bg, fg = colors.fg_light },
+                }
+
+                custom_gruvbox.inactive = {
+                    a = { bg = colors.bg_lightest, fg = colors.fg_light, gui = "bold" },
+                    b = { bg = colors.bg_lightest, fg = colors.fg_light },
+                    c = { bg = colors.bg_lightest, fg = colors.fg_light },
+                }
+
+                require('lualine').setup {
+                  options = { theme  = custom_gruvbox },
+                }
+            '';
         };
     };
 }
