@@ -40,5 +40,22 @@
         }
       ];
     };
+
+    nixosConfigurations.avell = nixpkgs.lib.nixosSystem {
+      inherit system;
+
+      modules = [
+        ./hosts/avell/configuration.nix
+
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {
+            inherit pkgs nixvim;
+          };
+          home-manager.users.al = import ./hosts/avell/home.nix;
+        }
+      ];
+    };
   };
 }
