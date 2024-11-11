@@ -67,6 +67,8 @@
             hlsearch = false;
             incsearch = true;
 
+            cmdheight = 0;
+
             # :h conceallevel
             conceallevel = 2;
 
@@ -132,7 +134,7 @@
             { mode = "n"; key = "H"; action = ":bp<CR>"; }
             { mode = "n"; key = "L"; action = ":bn<CR>"; }
             
-            # Git signs
+            # Gitsigns
             {
                 mode = "n";
                 key = "<leader>gb";

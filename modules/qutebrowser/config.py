@@ -1,5 +1,5 @@
 config.load_autoconfig()
-config.bind("J", "tab-prev")
-config.bind("K", "tab-next")
+config.bind("J", "tab-next")
+config.bind("K", "tab-prev")
 config.set("editor.command", ["kitty", "-e", "nvim", "{file}"])
 config.set("colors.webpage.preferred_color_scheme", "dark")
