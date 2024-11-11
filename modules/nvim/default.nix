@@ -381,31 +381,31 @@
                 custom_gruvbox.normal = {
                     a = { bg = colors.bg_lightest, fg = colors.fg, gui = "bold" },
                     b = { bg = colors.bg_light, fg = colors.fg },
-                    c = { bg = colors.bg, fg = colors.fg_light },
+                    c = { bg = colors.bg, fg = colors.fg },
                 }
 
                 custom_gruvbox.insert = {
                     a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
                     b = { bg = colors.bg_light, fg = colors.fg },
-                    c = { bg = colors.bg, fg = colors.fg_light },
+                    c = { bg = colors.bg, fg = colors.fg },
                 }
 
                 custom_gruvbox.visual = {
                     a = { bg = colors.yellow , fg = colors.bg, gui = "bold" },
                     b = { bg = colors.bg_light, fg = colors.fg },
-                    c = { bg = colors.bg, fg = colors.fg_light },
+                    c = { bg = colors.bg, fg = colors.fg },
                 }
 
                 custom_gruvbox.replace = {
                     a = { bg = colors.red, fg = colors.bg, gui = "bold" },
                     b = { bg = colors.bg_light, fg = colors.fg },
-                    c = { bg = colors.bg, fg = colors.fg_light },
+                    c = { bg = colors.bg, fg = colors.fg },
                 }
 
                 custom_gruvbox.command = {
                     a = { bg = colors.green, fg = colors.bg, gui = "bold" },
                     b = { bg = colors.bg_light, fg = colors.fg },
-                    c = { bg = colors.bg, fg = colors.fg_light },
+                    c = { bg = colors.bg, fg = colors.fg },
                 }
 
                 custom_gruvbox.inactive = {
