@@ -95,11 +95,17 @@
 
         keymaps = [
             { mode = "n"; key = "q"; action = "<cmd>quit<CR>"; }
-
+            
+            # Split navigation
+            { mode = "n"; key = "<A-h>"; action = "<C-w>h"; }
+            { mode = "n"; key = "<A-j>"; action = "<C-w>j"; }
+            { mode = "n"; key = "<A-k>"; action = "<C-w>k"; }
+            { mode = "n"; key = "<A-l>"; action = "<C-w>l"; }
+            
             # Move selected lines up and down
             { mode = "v"; key = "J"; action = ":m '>+1<CR>gv=gv"; }
             { mode = "v"; key = "K"; action = ":m '<-2<CR>gv=gv"; }
-
+            
             # Keep cursor centered
             { mode = "n"; key = "j"; action = "jzz"; }
             { mode = "n"; key = "k"; action = "kzz"; }
@@ -108,7 +114,7 @@
             
             # Keep centered when using J
             { mode = "n"; key = "J"; action = "mzJ`z"; }
-
+            
             # Keep centered when half-page jumping
             { mode = "n"; key = "<C-d>"; action = "<C-d>zz"; }
             { mode = "n"; key = "<C-u>"; action = "<C-u>zz"; }
@@ -121,10 +127,17 @@
             # <C-o> temporarily escape insert mode
             { mode = "i"; key = "<C-z>"; action = "<C-o>u"; }
             { mode = "i"; key = "<C-y>"; action = "<C-o><C-r>"; }
-
+            
             # Navigate between files with Shift+H (previous file) and Shift+L (next file)
             { mode = "n"; key = "H"; action = ":bp<CR>"; }
             { mode = "n"; key = "L"; action = ":bn<CR>"; }
+            
+            # Git signs
+            {
+                mode = "n";
+                key = "<leader>gb";
+                action = ":Gitsigns toggle_current_line_blame<CR>";
+            }
         ];
 
         ############################################################
@@ -405,6 +418,19 @@
                   options = { theme  = custom_gruvbox },
                 }
             '';
+        };
+
+        ############################################################
+        # Git stuff
+        ############################################################
+        plugins.fugitive.enable = true;
+
+        plugins.gitsigns = {
+            enable = true;
+            settings = {
+                current_line_blame = true;
+                current_line_blame_opts.delay = 0;
+            };
         };
     };
 }
