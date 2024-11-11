@@ -12,6 +12,7 @@
         dunst
         polybar
         hsetroot
+        i3-auto-layout
     ];
 
     xsession = {
