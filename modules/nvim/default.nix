@@ -152,6 +152,39 @@
             })
         '';
 
+        autoGroups = {
+            markdown_settings = {
+                clear = true;
+            };
+        };
+
+        autoCmd = [
+            {
+                event = ["BufRead" "BufNewFile"];
+                pattern = ["*.mdx"];
+                group = "markdown_settings";
+                command = "set filetype=markdown";
+            }
+            {
+                event = ["BufRead" "BufNewFile"];
+                pattern = ["*.md" "*.mdx"];
+                group = "markdown_settings";
+                command = "setlocal textwidth=80";
+            }
+            {
+                event = ["BufRead" "BufNewFile"];
+                pattern = ["*.md" "*.mdx"];
+                group = "markdown_settings";
+                command = "setlocal formatoptions+=t";
+            }
+            {
+                event = ["BufRead" "BufNewFile"];
+                pattern = ["*.md" "*.mdx"];
+                group = "markdown_settings";
+                command = "setlocal wrap";
+            }
+        ];
+
         ############################################################
         # Plugins
         ############################################################
