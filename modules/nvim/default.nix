@@ -36,7 +36,6 @@
                 ctermbg = "NONE";
             };
             StatusLine = {
-                # fg = "#111111";
                 bg = "#000000";
             };
         };
@@ -141,6 +140,17 @@
                 action = ":Gitsigns toggle_current_line_blame<CR>";
             }
         ];
+
+        ############################################################
+        # Filetypes
+        ############################################################
+        extraConfigLua = ''
+            vim.filetype.add({
+                extension = {
+                    mdx = "markdown"
+                }
+            })
+        '';
 
         ############################################################
         # Plugins
