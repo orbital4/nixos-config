@@ -5,8 +5,9 @@
         ./hardware-configuration.nix
     ];
 
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.systemd-boot.configurationLimit = 10;
+    programs.talon.enable = true;
+
+    boot.loader.systemd-boot.enable = true; boot.loader.systemd-boot.configurationLimit = 10;
     boot.loader.efi.canTouchEfiVariables = true;
 
     networking.hostName = "nixos";
@@ -69,6 +70,8 @@
         bat # better cat
         brightnessctl # change brightness
         xdotool
+        dotool
+        snixembed
     ];
 
     services.xserver = {
@@ -94,6 +97,8 @@
     environment.shellAliases = {
         v = "nvim";
     };
+  
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     system.stateVersion = "24.05";
 }

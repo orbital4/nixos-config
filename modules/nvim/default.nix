@@ -96,6 +96,9 @@
 
         keymaps = [
             { mode = "n"; key = "q"; action = "<cmd>quit<CR>"; }
+
+            { mode = "i"; key = "<C-h>"; action = "<C-w>"; options = { noremap = true; }; }
+            { mode = "i"; key = "<C-BS>"; action = "<C-w>"; options = { noremap = true; }; }
             
             # Split navigation
             { mode = "n"; key = "<A-h>"; action = "<C-w>h"; }

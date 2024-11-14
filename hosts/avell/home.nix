@@ -4,7 +4,7 @@
     imports = [
         ../../modules/nvim
         ../../modules/i3
-        ../../modules/polybar
+        # ../../modules/polybar
         ../../modules/kitty
         ../../modules/bash
         ../../modules/lf
@@ -20,6 +20,7 @@
         proton-pass
         zathura
         obsidian
+        blueman
     ];
 
     programs.home-manager.enable = true;

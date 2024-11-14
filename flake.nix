@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    talon = {
+      url = "github:nix-community/talon-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +20,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixvim, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixvim, home-manager, talon, ... }@inputs:
   let
     system = "x86_64-linux";
 
@@ -46,6 +51,7 @@
 
       modules = [
         ./hosts/avell/configuration.nix
+        talon.nixosModules.talon
 
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
