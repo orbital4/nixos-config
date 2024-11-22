@@ -208,11 +208,14 @@
                 vimdoc
                 xml
                 yaml
+                html
                 # Programming
                 c
                 bash
                 lua
                 javascript
+                typescript
+                tsx
                 python
                 rust
                 go
