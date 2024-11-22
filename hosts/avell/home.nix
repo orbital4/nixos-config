@@ -9,6 +9,7 @@
         ../../modules/bash
         ../../modules/lf
         ../../modules/qutebrowser
+        ../../modules/zathura
     ];
 
     home.username = "al";
@@ -18,9 +19,9 @@
     home.packages = with pkgs; [
         fastfetch
         proton-pass
-        zathura
         obsidian
         blueman
+        bitwarden-cli
     ];
 
     programs.home-manager.enable = true;

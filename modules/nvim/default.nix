@@ -44,6 +44,8 @@
         # Sets
         ############################################################
         opts = {
+            swapfile = false;
+
             number = true;
             relativenumber = true;
             showmode = false;
@@ -234,6 +236,16 @@
 
         plugins.nvim-autopairs = {
             enable = true;
+            settings = {
+                fast_wrap.chars = [
+                    "{"
+                    "["
+                    "("
+                    "\""
+                    "'"
+                    "$"
+                ];
+            };
         };
 
         plugins.indent-blankline = {
