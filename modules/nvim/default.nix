@@ -196,6 +196,7 @@
         plugins.treesitter = {
             enable = true;
             settings.highlight.enable = true;
+            settings.indent.enable = true;
             grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
                 # Markup/Misc
                 json
