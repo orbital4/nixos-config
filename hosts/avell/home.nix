@@ -21,7 +21,9 @@
         proton-pass
         obsidian
         blueman
-        bitwarden-cli
+        filebrowser
+        caddy
+        dig
     ];
 
     programs.home-manager.enable = true;

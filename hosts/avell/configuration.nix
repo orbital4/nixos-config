@@ -97,8 +97,10 @@
     environment.shellAliases = {
         v = "nvim";
     };
-  
+
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     system.stateVersion = "24.05";
+
+    networking.firewall.allowedTCPPorts = [ 80 443 8443 ];
 }
